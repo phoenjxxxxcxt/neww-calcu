@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <title>Kalkulator</title>
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+    <div class="container">
+        <div class="Judul">
+        <h1 style="color: rgb(255, 255, 255);">CALCULATOR</h1>
+        </div>
+        <table border="1" cellspacing="1">
+
+            <tr>
+                <form name="form">
+                    <td colspan="4" id="textinput"></td>
+                </form>
+                </tr>
+            <tr>
+                <td colspan="3"><button onclick="pushBtn(this);"
+                        style="background-color: #ff000094;color:white">C</button></td>
+                <td><button onclick="pushBtn(this);" style="background-color:rgba(0, 132, 255, 0.658); color: rgb(0, 0, 0);">/</button>
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick="pushBtn(this);">7</button></td>
+                <td><button onclick="pushBtn(this);">8</button></td>
+                <td><button onclick="pushBtn(this);">9</button></td>
+                <td><button onclick="pushBtn(this);" style="background-color:rgba(0, 132, 255, 0.658); color: rgb(0, 0, 0);">*</button>
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick="pushBtn(this);">4</button></td>
+                <td><button onclick="pushBtn(this);">5</button></td>
+                <td><button onclick="pushBtn(this);">6</button></td>
+                <td><button onclick="pushBtn(this);" style="background-color:rgba(0, 132, 255, 0.658); color: rgb(0, 0, 0);">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick="pushBtn(this);">1</button></td>
+                <td><button onclick="pushBtn(this);">2</button></td>
+                <td><button onclick="pushBtn(this);">3</button></td>
+                <td><button onclick="pushBtn(this);" style="background-color:rgba(0, 132, 255, 0.658); color: rgb(0, 0, 0);">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td><button onclick="pushBtn(this);">.</button></td>
+                <td><button onclick="pushBtn(this);">0</button></td>
+                <td><button onclick="pushBtn(this);" style="background-color: rgba(0, 132, 255, 0.658); color: black;">DEL</button></td>
+                <td><button onclick="pushBtn(this);"
+                        style="background-color:rgba(81, 255, 0, 0.658); color: rgb(0, 0, 0);">=</button></td>
+                    </tr>
+        </table>
+    </div>
+    <script>
+        document.form.textinput
+        var textinput = document.getElementById('textinput');
+        var maxLength = Infinity;
+      
+        function pushBtn(obj) {
+          var pushed = obj.innerHTML;
+      
+          if (pushed == '=') {
+            textinput.innerHTML = eval(textinput.innerHTML);
+      
+          } else if (pushed == 'C') {
+            textinput.innerHTML = '';
+
+            
+          } else if (pushed == 'DEL') {
+    if (textinput.innerHTML.length > 0) {
+      textinput.innerHTML = textinput.innerHTML.substring(0, textinput.innerHTML.length - 1);
+    }
+          } else {
+            if (textinput.innerHTML === '0' && pushed !== '.') {
+              textinput.innerHTML = pushed;
+      
+      
+            } else {
+              if (textinput.innerHTML === '0' && pushed === '0') {
+                textinput.innerHTML = pushed;
+              }
+      
+              if (textinput.innerHTML.length < maxLength) {
+                textinput.innerHTML += pushed;
+              }
+            }
+          }
+        }
+      </script>
+</body>
+
+</html>
